@@ -1,0 +1,23 @@
+---
+title: "Week 4 Module 8"
+author: "Amanda Wu"
+date: "2023-09-24"
+output: html_document
+---
+
+outcomes <- c(1, 2, 3, 4, 5, 6)
+manipulate(hist(sample(outcomes, n, replace = TRUE), breaks = c(0.5, 1.5, 2.5,
+    3.5, 4.5, 5.5, 6.5), probability = TRUE, main = paste("Histogram of Outcomes of ",
+    n, " Die Rolls", sep = ""), xlab = "roll", ylab = "probability"), n = slider(0,
+    10000, initial = 100, step = 100))
+    
+## Challenge 1
+```{r Challenge 1}
+#Write a function to simulate rolling a die where you pass the number of rolls as an argument. Then, use your function to simulate rolling two dice 1000 times and take the sum of the rolls. Plot a histogram of those results.
+
+```
+
+# Troubleshooting:
+* Error message when uploading the first histogram 
+    + Error: "attempt to use zero-length variable name" 
+    
