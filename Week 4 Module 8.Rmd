@@ -11,9 +11,58 @@ manipulate(hist(sample(outcomes, n, replace = TRUE), breaks = c(0.5, 1.5, 2.5,
     n, " Die Rolls", sep = ""), xlab = "roll", ylab = "probability"), n = slider(0,
     10000, initial = 100, step = 100))
     
+    
 ## Challenge 1
 ```{r Challenge 1}
 #Write a function to simulate rolling a die where you pass the number of rolls as an argument. Then, use your function to simulate rolling two dice 1000 times and take the sum of the rolls. Plot a histogram of those results.
+nrolls <- 1000 #1000 times 
+roll <- function(x) {
+    sample(1:6, x, replace = TRUE)
+}
+two_dice <- roll(nrolls) + roll(nrolls) #both dice
+hist(two_dice, breaks = c(1.5:12.5), probability = TRUE, main = "Rolling Two Dice",
+    xlab = "sum of rolls", ylab = "probability") #making the graph, 
+
+```
+
+
+## Challenge 2
+```{r Challenge 2}
+#You have a deck of 52 cards, Ace to 10 + 3 face cards in each suit. You draw a card at random.
+#What is the probability that you draw a face card?
+face <- 12/52
+face
+#What is the probability that you draw a King?
+king <- 4/52
+king
+#What is the probability that you draw a spade?
+spade <- 13/52
+spade
+#What is the probability that you draw a spade given that you draw a face card?
+sface <- 3/12
+sface
+#What is the probability that you draw a King given that you draw a face card?
+faceking <- 3/12
+faceking
+#What is the probability that you draw a card that is both from a red suit (hearts or diamonds) and a face card?
+#Pr (A) = red suit = 26/52 = 1/2
+#Pr (B) = face card = 12/52 =
+#Pr (A | B) = red suit given face card = 6/12
+#Pr (A ⋂ B) = Pr (A | B) × Pr (B) = 6/12 × 12/52 = 6/52 = 0.1153846
+
+#What is the probability that you draw a card that is either a club or not a face card?
+#Pr (A) = club = 13/52 = 13/52
+#Pr (B) = not a face card = 40/52
+#Pr (A ⋂ B) = club and not a face card = 10/52
+#Pr (A ⋃ B) = Pr (A) + Pr (B) - Pr (A ⋂ B) = 13/52 + 40/52 - 10/52 = 43/52
+```
+
+## Challenge 3
+```{r Challenge 3}
+#Using the Bernoulli distribution, calculate the expectation for drawing a spade from a deck of cards? What is the variance in this expectation across a large number of draws?
+p = 13/52 
+bernoulli <- p * (1-p)
+bernoulli
 
 ```
 
